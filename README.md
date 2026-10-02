@@ -11,10 +11,6 @@
 
 ## โครงสร้างโปรเจกต์
 
-![โครงสร้างโปรเจกต์](docs/screenshots/03-structure.png)
-
-แบบข้อความ:
-
 ```
 reading-list/
 ├── server/            # Backend
@@ -35,7 +31,6 @@ reading-list/
 
 ## วิธีติดตั้งและรัน
 
-![วิธีติดตั้งและรัน](docs/screenshots/04-install-run.png)
 ต้องมี [Node.js](https://nodejs.org) เวอร์ชัน 18 ขึ้นไป
 
 ```bash
