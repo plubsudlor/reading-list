@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>เกี่ยวกับโปรเจกต์ | Reading List</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <h1>📚 Reading List</h1>
+    <p>เอกสารโปรเจกต์</p>
+    <a class="hero-link" href="index.html">← กลับหน้าหลัก</a>
+  </header>
+
+  <main class="container doc">
+    <section class="card">
+      <h2>เกี่ยวกับแอป</h2>
+      <p>เว็บแอป full-stack ขนาดเล็กสำหรับจัดการรายชื่อหนังสือ สร้างด้วย Node.js + Express (REST API) และ HTML / CSS / JavaScript ที่เรียก API ของตัวเองด้วย <code>fetch()</code></p>
+    </section>
+
+    <section class="card">
+      <h2>โครงสร้างโปรเจกต์</h2>
+      <pre>reading-list/
+├── server/            # Backend
+│   ├── index.js       # เริ่มเซิร์ฟเวอร์
+│   ├── app.js         # Express app + routes
+│   ├── store.js       # อ่าน/เขียนไฟล์ JSON
+│   ├── validate.js    # ตรวจสอบข้อมูล
+│   └── data/books.json
+├── public/            # Frontend
+│   ├── index.html
+│   ├── about.html
+│   ├── style.css
+│   └── app.js
+├── scripts/api-test.js # สคริปต์ทดสอบทุก endpoint
+├── docs/              # รายงาน PDF + screenshots
+├── package.json
+└── README.md</pre>
+    </section>
+
+    <section class="card">
+      <h2>วิธีติดตั้งและรัน</h2>
+      <pre>npm install
+npm run dev      # รันแบบ auto-restart เมื่อแก้ไฟล์
+# หรือ
+npm start        # รันปกติ</pre>
+      <p>จากนั้นเปิด <code>http://localhost:3000</code></p>
+    </section>
+
+    <section class="card">
+      <h2>REST API Endpoints</h2>
+      <table>
+        <tr><th>Method</th><th>Endpoint</th><th>คำอธิบาย</th><th>Status</th></tr>
+        <tr><td>GET</td><td><code>/api/books</code></td><td>ดึงทั้งหมด กรองด้วย <code>?status=</code> <code>?category=</code> <code>?q=</code></td><td>200</td></tr>
+        <tr><td>GET</td><td><code>/api/books/:id</code></td><td>ดึงเล่มเดียว</td><td>200 / 404</td></tr>
+        <tr><td>POST</td><td><code>/api/books</code></td><td>เพิ่มหนังสือ</td><td>201 / 400</td></tr>
+        <tr><td>PATCH</td><td><code>/api/books/:id</code></td><td>แก้ไขหนังสือ</td><td>200 / 400 / 404</td></tr>
+        <tr><td>DELETE</td><td><code>/api/books/:id</code></td><td>ลบหนังสือ</td><td>204 / 404</td></tr>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>ภาพหลักฐานการทำงาน</h2>
+      <h3>1) หน้าเว็บ แสดงรายการ / ฟอร์ม / ตัวกรอง</h3>
+      <img src="/screenshots/01-list.png" alt="หน้าหลัก" />
+      <h3>2) ผลทดสอบ API ทุก endpoint (200 / 201 / 204 / 400 / 404)</h3>
+      <img src="/screenshots/02-api-test.png" alt="ผลทดสอบ API" />
+    </section>
+  </main>
+</body>
+</html>

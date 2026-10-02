@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>หน้าแรก | ติณภัทร ทิพรัตน์</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="site-header">
+        <a href="index.html" class="logo">ติณภัทร ทิพรัตน์</a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="เปิ ดปิ ดเมนู" aria-expanded="false">☰</button>
+
+        <nav class="site-nav">
+            <ul>
+                <li><a href="index.html" class="active">หน้าแรก</a></li>
+                <li><a href="experience.html">ประสบการณ์</a></li>
+                <li><a href="projects.html">ผลงาน</a></li>
+                <li><a href="contact.html">ติดต่อ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-head">
+            <h1>ติดต่อ</h1>
+            <p class="tagline">ยินดีรับฟังทุกโอกาสในการร่วมงาน</p>
+        </section>
+        <section>
+            <h2>ช่องทางการติดต่อ</h2>
+            <ul class="contact-list">
+                <li>
+                    <span class="label">อีเมล</span>
+                    <a href="mailto:plub.home@gmail.com">plub.home@gmail.com</a>
+                </li>
+                <li>
+                    <span class="label">โทรศัพท์</span>
+                    <a href="tel:+66983643349">0983643349</a>
+                </li>
+                <li>
+                    <span class="label">GitHub</span>
+                    <a href="https://github.com/username" target="_blank" rel="noopener">github.com/username</a>
+                </li>
+                <li>
+                    <span class="label">LinkedIn</span>
+                    <a href="https://linkedin.com/in/username" target="_blank"
+                        rel="noopener">linkedin.com/in/username</a>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h2>ส่งขอ้ความถึงผม</h2>
+            <form class="contact-form" action="https://formspree.io/f/YOURID" method="POST">
+                <div class="field">
+                    <label for="name">ชื่อของคุณ</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="field">
+                    <label for="email">อีเมลของคุณ</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="field">
+                    <label for="message">ข้อความ</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn">ส่งขอ้ความ</button>
+            </form>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <p>&copy; 2567 ติณภัทร ทิพรัตน์</p>
+        <p>สร้างด้วย HTML และ CSS</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

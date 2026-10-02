@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>หน้าแรก | ติณภัทร ทิพรัตน์</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="site-header">
+        <a href="index.html" class="logo">ติณภัทร ทิพรัตน์</a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="เปิ ดปิ ดเมนู" aria-expanded="false">☰</button>
+
+        <nav class="site-nav">
+            <ul>
+                <li><a href="index.html" class="active">หน้าแรก</a></li>
+                <li><a href="experience.html">ประสบการณ์</a></li>
+                <li><a href="projects.html">ผลงาน</a></li>
+                <li><a href="contact.html">ติดต่อ</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="page-head">
+            <h1>ผลงาน</h1>
+            <p class="tagline">โครงงานที่เคยมีส่วนร่วมในการพฒั นา</p>
+        </section>
+        <section>
+            <h2>โครงงานที่ผ่านมา</h2>
+            <div class="project-grid">
+                <article class="project-card">
+                    <img src="images/project1.jpg" alt="ภาพหนา้จอระบบแจง้ซ่อมอุปกรณ์">
+                    <div class="project-body">
+                        <h3>ระบบแจง้ซ่อมอุปกรณ์ออนไลน</h ์ 3>
+                            <p>
+                                เว็บสำหรับให้พนักงานแจ้งปัญหาอุปกรณ์ไอที
+                                และใหฝ้่ายไอทีติดตามสถานะงานซ่อม
+                                พัฒนาระหว่างการฝึกงาน
+                            </p>
+                            <ul class="tech-list">
+                                <li>HTML</li>
+                                <li>CSS</li>
+                                <li>JavaScript</li>
+                            </ul>
+                            <div class="project-links">
+                                <a href="https://github.com/username/repair-system" target="_blank"
+                                    rel="noopener">ซอร์สโค้ด</a>
+                                <a href="https://username.github.io/repair-system" target="_blank"
+                                    rel="noopener">เดโม่</a>
+                            </div>
+                    </div>
+                </article>
+                <article class="project-card">
+                    <img src="images/project2.jpg" alt="ภาพหน้าจอเครื่องคิดเลขวิศวกรรม">
+                    <div class="project-body">
+                        <h3>เครื่องคิดเลขสำหรับงานวิศวกรรมไฟฟ้า</h3>
+                        <p>
+                            เครื่องมือคำนวณค่าความต้านทานและกระแสในวงจร
+                            พร้อมแสดงขั้นตอนการคำนวณใหผู้ใช้ตรวจสอบได้
+                        </p>
+                        <ul class="tech-list">
+                            <li>JavaScript</li>
+                            <li>CSS Grid</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://github.com/username/ee-calculator" target="_blank"
+                                rel="noopener">ซอร์สโค้ด</a>
+                        </div>
+                    </div>
+                </article>
+                <article class="project-card">
+                    <img src="images/project3.jpg" alt="ภาพหน้าจอโปรแกรมวิเคราะห์ข้อมูลเซ็นเซอร์">
+                    <div class="project-body">
+                        <h3>โปรแกรมวิเคราะห์ข้อมูลเซ็นเซอร์</h3>
+                        <p>
+                            สคริปต์อ่านขอ้มูลอุณหภูมิจากเซ็นเซอร์
+                            แล้วสรุปเป็นกราฟรายวัน ใช้ในวิชาโครงงาน
+                        </p>
+                        <ul class="tech-list">
+                            <li>Python</li>
+                            <li>Matplotlib</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://github.com/username/sensor-analysis" target="_blank"
+                                rel="noopener">ซอร์สโค้ด</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <p>&copy; 2567 ติณภัทร ทิพรัตน์</p>
+        <p>สร้างด้วย HTML และ CSS</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

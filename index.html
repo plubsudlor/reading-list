@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reading List</title>
+  <link rel="stylesheet" href="readme.css" />
+</head>
+<body>
+<article class="markdown-body">
+  <h1>📚 Reading List</h1>
+  <p>เว็บแอปพลิเคชัน full-stack ขนาดเล็กสำหรับจัดการรายชื่อหนังสือที่อยากอ่านหรืออ่านจบแล้ว สร้างด้วย <b>Node.js + Express</b> (REST API) และหน้าเว็บ <b>HTML / CSS / JavaScript</b> ที่เรียก API ของตัวเองด้วย <code>fetch()</code></p>
+  <p><a class="open-app" href="app.html">เปิดแอป Reading List →</a></p>
+
+  <h2>ฟีเจอร์</h2>
+  <ul>
+    <li>ดู / ค้นหา / กรองหนังสือตามสถานะ (อยากอ่าน · กำลังอ่าน · อ่านจบแล้ว) โดยไม่โหลดหน้าใหม่</li>
+    <li>เพิ่มหนังสือผ่านฟอร์ม (มีการตรวจข้อมูลทั้งฝั่งเซิร์ฟเวอร์)</li>
+    <li>แก้ไขและลบหนังสือ</li>
+    <li>ข้อมูลเก็บในไฟล์ <code>server/data/books.json</code></li>
+  </ul>
+
+  <h2>โครงสร้างโปรเจกต์</h2>
+  <div class="codeblock"><pre><code>reading-list/
+├── server/            # Backend
+│   ├── index.js       # เริ่มเซิร์ฟเวอร์
+│   ├── app.js         # Express app + routes
+│   ├── store.js       # อ่าน/เขียนไฟล์ JSON
+│   ├── validate.js    # ตรวจสอบข้อมูล
+│   └── data/books.json
+├── public/            # Frontend
+│   ├── index.html     # หน้าเอกสาร (หน้าแรก)
+│   ├── app.html       # ตัวแอป
+│   ├── readme.css
+│   ├── style.css
+│   └── app.js
+├── scripts/api-test.js # สคริปต์ทดสอบทุก endpoint
+├── docs/              # รายงาน PDF + screenshots
+├── package.json
+└── README.md</code></pre></div>
+
+  <h2>วิธีติดตั้งและรัน</h2>
+  <p>ต้องมี <a href="https://nodejs.org" target="_blank" rel="noopener">Node.js</a> เวอร์ชัน 18 ขึ้นไป</p>
+  <div class="codeblock"><pre><code>npm install
+npm run dev      # รันแบบ auto-restart เมื่อแก้ไฟล์
+# หรือ
+npm start        # รันปกติ</code></pre></div>
+  <p>จากนั้นเปิด <a href="http://localhost:3000">http://localhost:3000</a></p>
+
+  <h2>REST API Endpoints</h2>
+  <p>Base URL: <code>/api/books</code></p>
+  <div class="table-wrap"><table>
+    <tr><th>Method</th><th>Endpoint</th><th>คำอธิบาย</th><th>Status</th></tr>
+    <tr><td>GET</td><td><code>/api/books</code></td><td>ดึงรายการทั้งหมด รองรับ <code>?status=read|reading|want</code>, <code>?category=...</code>, <code>?q=คำค้น</code></td><td>200</td></tr>
+    <tr><td>GET</td><td><code>/api/books/:id</code></td><td>ดึงหนังสือเล่มเดียว</td><td>200 / 404</td></tr>
+    <tr><td>POST</td><td><code>/api/books</code></td><td>เพิ่มหนังสือใหม่</td><td>201 / 400</td></tr>
+    <tr><td>PATCH</td><td><code>/api/books/:id</code></td><td>แก้ไขบาง field</td><td>200 / 400 / 404</td></tr>
+    <tr><td>DELETE</td><td><code>/api/books/:id</code></td><td>ลบหนังสือ</td><td>204 / 404</td></tr>
+  </table></div>
+
+  <h3>โครงสร้างข้อมูล (Book)</h3>
+  <div class="table-wrap"><table>
+    <tr><th>Field</th><th>ชนิด</th><th>บังคับ</th><th>หมายเหตุ</th></tr>
+    <tr><td><code>id</code></td><td>number</td><td>auto</td><td>สร้างโดยเซิร์ฟเวอร์</td></tr>
+    <tr><td><code>title</code></td><td>string</td><td>✅</td><td>ชื่อหนังสือ</td></tr>
+    <tr><td><code>author</code></td><td>string</td><td>✅</td><td>ผู้แต่ง</td></tr>
+    <tr><td><code>category</code></td><td>string</td><td></td><td>หมวดหมู่</td></tr>
+    <tr><td><code>status</code></td><td>want | reading | read</td><td></td><td>ค่าเริ่มต้น <code>want</code></td></tr>
+    <tr><td><code>rating</code></td><td>integer 0–5</td><td></td><td>ค่าเริ่มต้น <code>0</code></td></tr>
+    <tr><td><code>createdAt</code></td><td>ISO date</td><td>auto</td><td></td></tr>
+  </table></div>
+
+  <h3>ตัวอย่าง</h3>
+  <div class="codeblock"><pre><code>curl "http://localhost:3000/api/books?status=read"
+
+curl -X POST http://localhost:3000/api/books \
+  -H "Content-Type: application/json" \
+  -d '{"title":"Dune","author":"Frank Herbert","category":"Sci-Fi"}'
+
+curl -X PATCH http://localhost:3000/api/books/4 \
+  -H "Content-Type: application/json" -d '{"status":"read","rating":5}'
+
+curl -X DELETE http://localhost:3000/api/books/4</code></pre></div>
+
+  <h2>ภาพหลักฐานการทำงาน</h2>
+  <p><b>1) หน้าเว็บ แสดงรายการ / ฟอร์ม / ตัวกรอง (ดึงด้วย <code>fetch()</code> ไม่โหลดหน้าใหม่)</b></p>
+  <p><img src="screenshots/01-list.png" alt="หน้าหลัก" /></p>
+  <p><b>2) ผลทดสอบ API ทุก endpoint (200 / 201 / 204 / 400 / 404)</b> ด้วยคำสั่ง <code>npm run test:api</code></p>
+  <p><img src="screenshots/02-api-test.png" alt="ทดสอบ API" /></p>
+</article>
+<script>
+  document.querySelectorAll('.codeblock').forEach((box) => {
+    const btn = document.createElement('button');
+    btn.className = 'copy'; btn.textContent = 'Copy';
+    btn.onclick = async () => {
+      try { await navigator.clipboard.writeText(box.querySelector('code').innerText); btn.textContent = 'Copied!'; }
+      catch { btn.textContent = 'Error'; }
+      setTimeout(() => (btn.textContent = 'Copy'), 1500);
+    };
+    box.append(btn);
+  });
+</script>
+</body>
+</html>
