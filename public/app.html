@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reading List</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <h1>📚 Reading List</h1>
+    <p>รายชื่อหนังสือที่อยากอ่านและอ่านจบแล้ว</p>
+    <a class="hero-link" href="index.html">← กลับหน้าเอกสาร</a>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2 id="form-title">เพิ่มหนังสือใหม่</h2>
+      <form id="book-form" novalidate>
+        <input type="hidden" id="book-id" />
+        <div class="grid">
+          <label>ชื่อหนังสือ *
+            <input id="title" required placeholder="เช่น Clean Code" />
+          </label>
+          <label>ผู้แต่ง *
+            <input id="author" required placeholder="เช่น Robert C. Martin" />
+          </label>
+          <label>หมวดหมู่
+            <input id="category" placeholder="เช่น Programming" />
+          </label>
+          <label>สถานะ
+            <select id="status">
+              <option value="want">อยากอ่าน</option>
+              <option value="reading">กำลังอ่าน</option>
+              <option value="read">อ่านจบแล้ว</option>
+            </select>
+          </label>
+          <label>คะแนน (0-5)
+            <input id="rating" type="number" min="0" max="5" value="0" />
+          </label>
+        </div>
+        <p id="form-error" class="error" role="alert"></p>
+        <div class="actions">
+          <button type="submit" id="submit-btn" class="btn primary">เพิ่มหนังสือ</button>
+          <button type="button" id="cancel-btn" class="btn" hidden>ยกเลิกการแก้ไข</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="toolbar">
+        <input id="search" type="search" placeholder="ค้นหาชื่อหรือผู้แต่ง..." />
+        <div class="filters" id="filters">
+          <button class="chip active" data-status="">ทั้งหมด</button>
+          <button class="chip" data-status="want">อยากอ่าน</button>
+          <button class="chip" data-status="reading">กำลังอ่าน</button>
+          <button class="chip" data-status="read">อ่านจบแล้ว</button>
+        </div>
+      </div>
+      <p id="count" class="muted"></p>
+      <ul id="book-list" class="book-list"></ul>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

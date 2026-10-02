@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "title": "Clean Code",
+    "author": "Robert C. Martin",
+    "category": "Programming",
+    "status": "read",
+    "rating": 5,
+    "createdAt": "2026-01-01T00:00:00.000Z"
+  },
+  {
+    "id": 2,
+    "title": "The Pragmatic Programmer",
+    "author": "Andrew Hunt",
+    "category": "Programming",
+    "status": "reading",
+    "rating": 0,
+    "createdAt": "2026-01-02T00:00:00.000Z"
+  },
+  {
+    "id": 3,
+    "title": "Sapiens",
+    "author": "Yuval Noah Harari",
+    "category": "History",
+    "status": "want",
+    "rating": 0,
+    "createdAt": "2026-01-03T00:00:00.000Z"
+  }
+]
